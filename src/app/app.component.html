@@ -1,0 +1,73 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+</style>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap');
+  button:hover{
+    background-color: transparent ;
+  }
+  nav{
+    border-bottom: 1px rgba(151,152,155,.2) solid;
+    
+    background-color: #262327;
+
+  }
+  .hero-container{
+    position: relative;
+    min-height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+</style>
+
+<nav class="navbar navbar-dark ">
+  <a style="color: rgba(255,255,255,.9); font-family: 'Syne Mono', monospace; font-weight: 600; font-size: 25px;" class="navbar-brand" routerLink="/">
+   
+    &nbsp;Pulsitere
+  </a>
+
+  <div>
+    <button style="border: none;" routerLink="/new/transaction/pending" class="btn btn-outline-light"  *ngIf="thereArePendingTransactions()">
+      Pending transactions
+      <span class="badge badge-light">{{blockchain.pendingTransactions.length}}</span>
+    </button>
+    &nbsp;
+    <button style="border: none; color:  rgba(226, 226, 226, 0.9); font-family: 'Syne Mono', monospace;" routerLink="/settings" class="btn btn-outline-light">
+      Settings
+    </button>
+    &nbsp;
+    <button style="border: none; color:  rgba(226, 226, 226, 0.9); font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="/new/transaction" class="btn btn-outline-light">
+      Create transaction
+    </button>
+    <button style="border: none; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="https://wolf.bet/?c=etherchain4" class="btn btn-outline-light">
+      Mini Game
+    </button>
+  </div>
+</nav>
+
+<br>
+
+<div class="container" *ngIf="showInfoMessage === true">
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">First things first.</h4>
+    This tool gives you the ability to look behind-the-scenes of a blockchain. You can create transactions, mine blocks and see how they all work together. Go ahead, make some transactions, mine a block, tweak the settings and see the effects of your actions in real-time.
+    <hr>
+   
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="dismissInfoMessage()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<div class="container">
+  <img src="" alt="">
+</div>
+
+<router-outlet></router-outlet>
+
+
