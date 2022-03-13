@@ -1,19 +1,27 @@
+
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 </style>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap');
-  button:hover{
-    background-color: transparent ;
-  }
-  nav{
-    border-bottom: 1px rgba(151,152,155,.2) solid;
-    
-    background-color: #262327;
+  @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap");
 
+  button:hover {
+    background-color: transparent;
   }
-  .hero-container{
+
+  a:hover {
+    background-color: transparent;
+  }
+
+  nav {
+    border-bottom: 1px rgba(151, 152, 155, 0.2) solid;
+
+    background-color: #262327;
+  }
+
+  .hero-container {
     position: relative;
     min-height: 250px;
     width: 100%;
@@ -24,50 +32,132 @@
     margin: 1rem 0;
     flex-wrap: wrap;
   }
+
+  .hero-image {
+    overflow: hidden;
+    flex: 1;
+    max-width: 500px;
+    min-width: 320px;
+    max-height: 400px;
+    min-height: 200px;
+  }
+
+  .hero-text {
+    font-size: 2rem;
+    flex: 1;
+    min-width: 305px;
+    max-width: 500px;
+    position: relative;
+  }
+  .hero-text-background {
+  }
+  .mt-4 {
+    margin-top: 1.5rem !important;
+  }
 </style>
 
-<nav class="navbar navbar-dark ">
-  <a style="color: rgba(255,255,255,.9); font-family: 'Syne Mono', monospace; font-weight: 600; font-size: 25px;" class="navbar-brand" routerLink="/">
-   
+<nav style=" background: #212529;" class="navbar navbar-dark">
+  <a
+    style="
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'Syne Mono', monospace;
+      font-weight: 600;
+      font-size: 25px;
+    "
+    class="navbar-brand"
+    routerLink="/"
+  >
     &nbsp;Pulsitere
   </a>
 
   <div>
-    <button style="border: none;" routerLink="/new/transaction/pending" class="btn btn-outline-light"  *ngIf="thereArePendingTransactions()">
+    <button
+      style="
+        border: none;
+        color: rgba(226, 226, 226, 0.9);
+        font-family: 'Syne Mono', monospace;
+      "
+      routerLink="/view-blockchain"
+      class="btn btn-outline-light"
+      onclick="remove()"
+    >
+      Blockchain
+    </button>
+    <button
+      style="border: none"
+      routerLink="/new/transaction/pending"
+      class="btn btn-outline-light"
+      *ngIf="thereArePendingTransactions()"
+    >
       Pending transactions
-      <span class="badge badge-light">{{blockchain.pendingTransactions.length}}</span>
+      <span class="badge badge-light">{{
+        blockchain.pendingTransactions.length
+      }}</span>
     </button>
     &nbsp;
-    <button style="border: none; color:  rgba(226, 226, 226, 0.9); font-family: 'Syne Mono', monospace;" routerLink="/settings" class="btn btn-outline-light">
+    <button
+      style="
+        border: none;
+        color: rgba(226, 226, 226, 0.9);
+        font-family: 'Syne Mono', monospace;
+      "
+      routerLink="/settings"
+      class="btn btn-outline-light"
+    >
       Settings
     </button>
     &nbsp;
-    <button style="border: none; color:  rgba(226, 226, 226, 0.9); font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="/new/transaction" class="btn btn-outline-light">
+    <button
+      style="
+        border: none;
+        color: rgba(226, 226, 226, 0.9);
+        font-family: 'Syne Mono', monospace;
+        font-size: 15px;
+      "
+      routerLink="/new/transaction"
+      class="btn btn-outline-light"
+    >
       Create transaction
     </button>
-    <button style="border: none; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="https://wolf.bet/?c=etherchain4" class="btn btn-outline-light">
-      Mini Game
-    </button>
+
+    <a
+      style="
+        border: none;
+        color: #ee7112;
+        font-family: 'Syne Mono', monospace;
+        font-size: 15px;
+      "
+      class="btn btn-outline-light"
+      href="https://wolf.bet/?c=etherchain4"
+    >
+      Mini Game</a
+    >
   </div>
 </nav>
 
-<br>
+<br />
 
-<div class="container" *ngIf="showInfoMessage === true">
-  <div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">First things first.</h4>
-    This tool gives you the ability to look behind-the-scenes of a blockchain. You can create transactions, mine blocks and see how they all work together. Go ahead, make some transactions, mine a block, tweak the settings and see the effects of your actions in real-time.
-    <hr>
-   
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="dismissInfoMessage()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="hero-container">
+  <div class="hero-image">
+    
+    <img style="width: 100%; margin-left: 20px;" id="background" src="../assets/img/design.png" alt="" />
   </div>
+  <div class="hero-text">
+    <div class="hero-text-background"></div>
+    <h1 style="color: rgba(255, 255, 255, 0.9); margin-right: 100px;" class="mt-4 text-center">
+      The
+      <span style="font-family: 'Syne Mono', monospace">Pulsitere</span> Block
+      Chain Explorer
+    </h1>
+  </div>
+  
 </div>
-<div class="container">
-  <img src="" alt="">
-</div>
+
+<script>
+  function remove() {
+   var background = document.getElementById('background');
+   background.style.display = 'none';
+  }
+</script>
 
 <router-outlet></router-outlet>
-
-

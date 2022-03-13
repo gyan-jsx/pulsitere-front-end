@@ -1,4 +1,4 @@
-<div class="container">
+<div style="color:#fff;" class="container">
 	<h1>Wallet details</h1>
 
 	<p style="word-wrap:break-word;">
@@ -21,4 +21,7 @@
 		[transactions]="transactions"
 		*ngIf="transactions.length > 0"
 	></app-transactions-table>
+	<button style="font-weight: 900; background-color: #fff; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="/view-blockchain" class="btn btn-outline-light">
+		Back
+	  </button>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div style="color: #fff;" class="container">
 
 	<div class="alert alert-success" role="alert" *ngIf="justAddedTx">
 		Transaction created successfully!
@@ -11,9 +11,10 @@
 		[transactions]="pendingTransactions">
 	</app-transactions-table>
 
-	 <button class="btn btn-primary" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
+	 <button style="font-weight: 900; background-color: #fff; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" class="btn btn-primary" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
      	Start mining
     </button>
+
 
     <div *ngIf="miningInProgress === true">
     	Mining block.. Hang on...

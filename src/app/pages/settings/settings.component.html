@@ -1,6 +1,6 @@
-<div class="container">
+<div style="margin-top: -6%;" class="container">
   <h1>Settings</h1>
-  <p>Control how the blockchain behaves when new transactions or blocks are created. Changes are automatically saved.</p>
+  
 
   <br>
 
@@ -15,16 +15,16 @@
 
   <br>
 
-  <div class="form-group">
+  <div style="margin-top: -1%;" class="form-group">
     <label for="miningReward">Mining reward</label>
     <input type="number" class="form-control" id="miningReward" aria-describedby="miningRewardHelp" [(ngModel)]="blockchain.miningReward">
     <small id="miningRewardHelp" class="form-text text-muted">
 		How much "coins" a miner receives for successfully creating a new block for the chain.
-		<br>Default: 100
+		<br>Default: 3.2
     </small>
   </div>
-  <button style="border: none; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="/" class="btn btn-outline-light">
-    Mini Game
+  <button style="font-weight: 900; background-color: #fff; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" routerLink="/new/transaction" class="btn btn-outline-light">
+    Save
   </button>
 
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div style="margin-top: -10%;" class="container">
 	<h1>Create transaction</h1>
 	<p>Transfer some money to someone!</p>
 
@@ -12,7 +12,7 @@
 	    </small>
   	</div>
 
-  	<div class="form-group">
+  	<div style="margin-top: -1%;" class="form-group">
 	    <label for="toAddress">To address</label>
 	    <input type="text" class="form-control" id="toAddress" aria-describedby="toAddressHelp" [(ngModel)]="newTx.toAddress">
 	    <small id="toAddressHelp" class="form-text text-muted">
@@ -28,6 +28,6 @@
 	    </small>
   	</div>
 
-  	<button (click)="createTransaction()" type="submit" class="btn btn-primary">Sign & create transaction</button>
+  	<button  style="font-weight: 900; background-color: #fff; color:  #ee7112; font-family: 'Syne Mono', monospace; font-size: 15px;" (click)="createTransaction()" type="submit" class="btn btn-primary">Sign In & create transaction</button>
 
 </div>

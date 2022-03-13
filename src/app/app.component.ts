@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   thereArePendingTransactions() {
     return this.blockchain.pendingTransactions.length > 0;
   }
+  
 
   dismissInfoMessage() {
     this.showInfoMessage = false;
